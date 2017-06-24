@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Print Certificate</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="#{certificateController.message}" />
+            <br/>
+            <h:dataTable value="#{certificateController.certificateDataModel}" var="certificate" >
+                <h:column>
+                    <f:facet name="header">First Name</f:facet>
+                    #{certificate.quiz.student.firstname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Last Name</f:facet>
+                    #{certificate.quiz.student.lastname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Course Name</f:facet>
+                    #{certificate.quiz.course.courseName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Certificate Date</f:facet>
+                    #{certificate.certificateDate}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton action="#{certificateController.print(certificate.id)}" value="Print Certificate" />
+                </h:column>         
+            </h:dataTable>
+            <br/>
+            <h:commandButton action="#{certificateController.toMyCourse}" value="List My Courses" />
+        </h:form>
+    </h:body>
+</html>

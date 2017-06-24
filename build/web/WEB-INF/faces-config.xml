@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+	<from-view-id>index.xhtml</from-view-id>
+	<navigation-case>
+            <from-action>#{studentLoginController.register}</from-action>
+            <from-outcome>register</from-outcome>
+            <to-view-id>register.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{studentLoginController.login}</from-action>
+            <from-outcome>login_success</from-outcome>
+            <to-view-id>listCoursesForStudent.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{studentLoginController.toAllCourses}</from-action>
+            <from-outcome>index_goto_allCourses</from-outcome>
+            <to-view-id>allCourses.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+         <navigation-case>
+            <from-action>#{studentLoginController.toMyCourses}</from-action>
+            <from-outcome>index_goto_myCourses</from-outcome>
+            <to-view-id>listCoursesForStudent.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{studentLoginController.toCertificate}</from-action>
+            <from-outcome>goto_printCertificate</from-outcome>
+            <to-view-id>printCertificate.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>register.xhtml</from-view-id>
+	<navigation-case>
+            <from-action>#{studentRegisterController.register}</from-action>
+            <from-outcome>register_success</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>listCoursesForStudent.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{listCoursesForStudentController.listAllCourses}</from-action>
+            <from-outcome>listCoursesForStudentController_goto_listAllCourses</from-outcome>
+            <to-view-id>allCourses.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+	<navigation-case>
+            <from-action>#{listCoursesForStudentController.backhome}</from-action>
+            <from-outcome>back_home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{listCoursesForStudentController.logout}</from-action>
+            <from-outcome>back_home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{listCoursesForStudentController.takeQuiz(course.id)}</from-action>
+            <from-outcome>goto_quiz_page</from-outcome>
+            <to-view-id>quiz.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{listCoursesForStudentController.printCertificate}</from-action>
+            <from-outcome>goto_printCertificate</from-outcome>
+            <to-view-id>printCertificate.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>allCourses.xhtml</from-view-id>
+	<navigation-case>
+            <from-action>#{allCoursesController.backhome}</from-action>
+            <from-outcome>back_home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{allCoursesController.takeCourse(course.id)}</from-action>
+            <from-outcome>all_courses_goto_listMyCourses</from-outcome>
+            <to-view-id>listCoursesForStudent.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>     
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>quiz.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{quizController.handOn}</from-action>
+            <from-outcome>quiz_goto_listMyCourse</from-outcome>
+            <to-view-id>listCoursesForStudent.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>printCertificate.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{certificateController.toMyCourse}</from-action>
+            <from-outcome>certificate_goto_listMyCourses</from-outcome>
+            <to-view-id>listCoursesForStudent.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

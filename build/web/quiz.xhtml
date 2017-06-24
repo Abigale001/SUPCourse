@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>SUPCourses - Quiz</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="#{quizController.quizContent}" />
+            <br/>
+            <h:outputLabel value="When you answer more than 2 questions correctly, you can pass." />
+            <br/>
+            <br/>
+            <h:outputLabel value="Q1: 1+1= "/>
+            <br/>
+            <h:inputText id="answerFirst" value="#{quizController.answerFirst}"/>
+            <br/><br/>
+            <h:outputLabel value="Q2: 2+2= "/>
+            <br/>
+            <h:inputText id="answerSecond" value="#{quizController.answerSecond}"/>
+            <br/><br/>
+            <h:outputLabel value="Q3: 3+3= "/>
+            <br/>
+            <h:inputText id="answerThird" value="#{quizController.answerThird}"/>
+            <br/><br/>
+            <h:outputLabel value="Q4: 4+4= "/>
+            <br/>
+            <h:inputText id="answerFourth" value="#{quizController.answerFourth}"/>
+            <br/><br/>
+            <h:outputLabel value="Q5: 5+5= "/>
+            <br/>
+            <h:inputText id="answerFifth" value="#{quizController.answerFifth}"/>
+            <br/><br/>
+            <h:commandButton action="#{quizController.handOn}" value="Hand On" />
+        </h:form>
+    </h:body>
+</html>

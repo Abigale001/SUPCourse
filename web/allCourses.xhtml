@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>SUPCourses - All Courses</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton action="#{allCoursesController.backhome}" value="HOME" />
+            <br/><br/><br/>
+            <h:outputLabel value="#{allCoursesController.message}" style="color: red"/>
+            <br/>
+            <h:dataTable value="#{allCoursesController.courseDataModel}" var="course">
+                <h:column>
+                    <f:facet name="header">Course Name</f:facet>
+                    #{course.courseName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Description</f:facet>
+                    #{course.description}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">fromDate</f:facet>
+                    #{course.fromDate}
+                </h:column>
+                 <h:column>
+                    <f:facet name="header">endDate</f:facet>
+                    #{course.endDate}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">moduleList</f:facet>
+                    #{course.moduleList}
+                </h:column>
+                <h:column>
+                    <c:if test="#{not empty allCoursesController.studentLoginController.stu}">
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandButton action="#{allCoursesController.takeCourse(course.id)}" value="Take this course" />
+                    </c:if>
+                </h:column> 
+            </h:dataTable>  
+        </h:form>
+    </h:body>
+</html>
