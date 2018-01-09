@@ -2,10 +2,10 @@
 This is a online course system by JavaEE.
 
 Main features:
-  register, log in and out
-  display courses
-  take a course and pass quizzes
-  print certifications
+- register, log in and out
+- display courses
+- take a course and pass quizzes
+- print certifications
   
 Application Structure
 - Servlets for each page
@@ -13,5 +13,3 @@ Application Structure
 - DAO pattern for accessing database
 - Entities with Metamodel API
 - Web Services relying on entities
-
-Web Services
